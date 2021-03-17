@@ -1,0 +1,12 @@
+.Circle {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  // border: 10px solid #000;
+  box-shadow:0 0 3px 8px #000;
+  border-radius: 50%;
+  cursor: move;
+  box-sizing: border-box;
+  opacity: .6;
+  offset-anchor: right top;
+}

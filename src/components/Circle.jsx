@@ -19,6 +19,7 @@ class Circle extends React.Component {
       pointTop: e.clientY - e.target.offsetTop,
       pointLeft: e.clientX - e.target.offsetLeft
     });
+    // this.props.parent.getChildrenMsg(this, 'hehe')
   }
 
   onMouseMove = () => {
@@ -29,6 +30,7 @@ class Circle extends React.Component {
           circleLeft: e.clientX - this.state.pointLeft
         });
       }
+      this.props.parent.computeRange([this.state.circleTop + 100, this.state.circleLeft + 100])
     }
   }
 
@@ -43,6 +45,10 @@ class Circle extends React.Component {
     });
   }
 
+  componentDidMount() {
+    this.props.parent.getChildrenMsg([this.state.circleTop + 100, this.state.circleLeft + 100])
+  }
+
   render() {
     return (
       <div
@@ -50,7 +56,7 @@ class Circle extends React.Component {
           top: this.state.circleTop,
           left: this.state.circleLeft,
           backgroundColor: this.props.color,
-          zIndex: this.state.isActive ? 99 : 1}}
+          zIndex: this.state.isActive ? 2 : 1}}
         className={style.Circle}
         onMouseDown={this.onMouseDown}
         onMouseMove={this.onMouseMove}
